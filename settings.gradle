@@ -1,0 +1,10 @@
+rootProject.name = 'spaces-admin-users-friendship'
+include 'spaces-user-svc'
+include 'spaces-friendship-svc'
+include 'spaces-user-svc:domain'
+findProject(':spaces-user-svc:domain')?.name = 'domain'
+include 'spaces-user-svc:infrastructure'
+findProject(':spaces-user-svc:infrastructure')?.name = 'infrastructure'
+include 'spaces-user-svc:application'
+findProject(':spaces-user-svc:application')?.name = 'application'
+
