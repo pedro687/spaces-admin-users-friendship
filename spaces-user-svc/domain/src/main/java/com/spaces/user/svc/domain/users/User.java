@@ -13,8 +13,8 @@ public class User extends AggregateRoot<UserID> {
     private LocalDate birthdayDate;
     private Gender gender;
     private Tellphone tellphone;
-
     private boolean active;
+
 
     private User(UserID userID, String username, String password, String email, LocalDate birthdayDate, Gender gender, Tellphone tellphone, boolean active) {
         super(userID);
@@ -28,11 +28,11 @@ public class User extends AggregateRoot<UserID> {
     }
 
     public static User newUser(String username,
-                            String password,
-                            String email,
-                            LocalDate birthdayDate,
-                            Gender gender,
-                            Tellphone tellphone) {
+                               String password,
+                               String email,
+                               LocalDate birthdayDate,
+                               Gender gender,
+                               Tellphone tellphone) {
         final var userId = UserID.unique();
         return new User(userId, username, password, email, birthdayDate, gender, tellphone, true);
     }
@@ -67,6 +67,15 @@ public class User extends AggregateRoot<UserID> {
 
     public String getEmail() {
         return email;
+    }
+
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public void setEmail(String email) {

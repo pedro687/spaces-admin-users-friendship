@@ -1,6 +1,5 @@
 rootProject.name = 'spaces-admin-users-friendship'
 include 'spaces-user-svc'
-include 'spaces-friendship-svc'
 include 'spaces-user-svc:domain'
 findProject(':spaces-user-svc:domain')?.name = 'domain'
 include 'spaces-user-svc:infrastructure'

@@ -8,14 +8,10 @@ public interface ValidationHandler {
     ValidationHandler append(ValidationHandler other);
 
     List<Error> getErrors();
-    <T> T validate(Validation<T> aValidation);
 
     default boolean hasError() {
         return getErrors() != null && !getErrors().isEmpty();
     }
 
-    interface Validation<T> {
 
-        T validate();
-    }
 }

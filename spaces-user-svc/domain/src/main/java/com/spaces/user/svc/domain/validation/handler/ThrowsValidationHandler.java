@@ -23,10 +23,6 @@ public class ThrowsValidationHandler implements ValidationHandler {
         return null;
     }
 
-    @Override
-    public <T> T validate(Validation<T> aValidation) {
-        return null;
-    }
 
     @Override
     public boolean hasError() {

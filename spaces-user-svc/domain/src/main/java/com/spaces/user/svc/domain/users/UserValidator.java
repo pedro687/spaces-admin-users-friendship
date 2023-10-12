@@ -4,10 +4,8 @@ import com.spaces.user.svc.domain.validation.Error;
 import com.spaces.user.svc.domain.validation.ValidationHandler;
 import com.spaces.user.svc.domain.validation.Validator;
 
-import java.time.Instant;
+
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
 import java.util.function.Predicate;
 
 public class UserValidator extends Validator {
@@ -20,9 +18,7 @@ public class UserValidator extends Validator {
 
     Predicate<String> predicateUsername = s -> s == null || s.length() < 4;
     Predicate<String> predicatePassword = s -> s == null || s.length() < 4;
-
     Predicate<String> predicateEmail = s -> s == null || s.isEmpty() || !validateEmail();
-
     Predicate<String> predicateBirthdayDate = s -> s == null || s.isEmpty() || !validateBirthday();
 
     @Override
@@ -54,7 +50,6 @@ public class UserValidator extends Validator {
     public boolean validateBirthday() {
         Integer yearNow = LocalDate.now().getYear();
         Integer yearBirthday = this.user.getBirthdayDate().getYear();
-
         return yearNow - yearBirthday >= 18;
     }
 }

@@ -9,7 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/spaces-friendship-svc" />
             <option value="$PROJECT_DIR$/spaces-user-svc" />
             <option value="$PROJECT_DIR$/spaces-user-svc/application" />
             <option value="$PROJECT_DIR$/spaces-user-svc/domain" />
