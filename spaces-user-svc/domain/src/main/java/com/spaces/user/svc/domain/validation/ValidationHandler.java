@@ -5,8 +5,6 @@ import java.util.List;
 public interface ValidationHandler {
     ValidationHandler append(Error anError);
 
-    ValidationHandler append(ValidationHandler other);
-
     List<Error> getErrors();
 
     default boolean hasError() {

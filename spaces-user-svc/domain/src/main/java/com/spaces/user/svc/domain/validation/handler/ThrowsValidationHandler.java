@@ -13,10 +13,6 @@ public class ThrowsValidationHandler implements ValidationHandler {
         throw DomainException.with(anError);
     }
 
-    @Override
-    public ValidationHandler append(ValidationHandler other) {
-        throw DomainException.with(other.getErrors());
-    }
 
     @Override
     public List<Error> getErrors() {
