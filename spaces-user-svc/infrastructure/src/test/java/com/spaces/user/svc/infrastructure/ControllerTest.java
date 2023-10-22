@@ -1,5 +1,6 @@
 package com.spaces.user.svc.infrastructure;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -15,6 +16,7 @@ import java.lang.annotation.*;
 @Inherited
 @ActiveProfiles("test")
 @WebMvcTest
+@Tag("integrationTest")
 public @interface ControllerTest {
 
     @AliasFor(annotation = WebMvcTest.class, attribute = "controllers")

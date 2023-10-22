@@ -4,6 +4,7 @@ import com.spaces.user.svc.domain.exception.DomainException;
 import com.spaces.user.svc.domain.users.Gender;
 import com.spaces.user.svc.domain.users.Tellphone;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.AdditionalAnswers;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @ExtendWith(MockitoExtension.class)
+@Tag("unitTest")
 class UserInteractorTest {
 
     @InjectMocks

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserTest {
+class UserTest extends UnitTest{
 
     @Test
     void givenAValidUser_whenCallsCreate_thenReturnUser() {
