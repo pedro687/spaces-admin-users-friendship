@@ -1,6 +1,7 @@
 package com.spaces.user.svc.infrastructure.api;
 
 import com.spaces.user.svc.domain.validation.handler.Notification;
+import com.spaces.user.svc.infrastructure.exceptions.ErrorResponseDto;
 import com.spaces.user.svc.infrastructure.users.models.CreateUserApiInput;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -37,7 +38,7 @@ public interface UserAPI {
                     responseCode = "422",
                     description = "UnprocessableEntity",
                     content = @Content(
-                            schema = @Schema(implementation = Error.class)
+                            schema = @Schema(implementation = ErrorResponseDto.class)
                     )
             )
     })

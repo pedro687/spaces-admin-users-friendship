@@ -8,7 +8,8 @@ buildscript {
 }
 
 plugins {
-    id 'java'
+    id 'java-conventions'
+    id 'jacoco-report-aggregation'
     id 'application'
     id 'org.springframework.boot' version '2.6.7'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -16,12 +17,7 @@ plugins {
 
 }
 
-repositories {
-    mavenCentral()
-}
-
 group = 'com.spaces.user.svc.infrastructure'
-version '1.0-SNAPSHOT'
 
 bootJar {
     archiveFileName = "application.jar"
@@ -44,7 +40,10 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation group: 'org.springdoc', name: 'springdoc-openapi-webmvc-core', version: '1.7.0'
     implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
+    testImplementation('org.testcontainers:testcontainers:1.17.6')
 
+    testImplementation('org.testcontainers:mysql:1.17.6')
+    testImplementation('org.testcontainers:junit-jupiter:1.17.6')
     testImplementation('org.flywaydb:flyway-core')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     implementation('com.h2database:h2')
@@ -57,6 +56,19 @@ flyway {
     password = System.getenv('FLYWAY_PASSWORD') ?: 'docker'
 }
 
-test {
-    useJUnitPlatform()
+testCodeCoverageReport {
+    reports {
+        xml {
+            enabled true
+            destination file("$rootDir/build/reports/jacoco/test/jacocoTestReport.xml")
+        }
+        html {
+            enabled true
+            destination file("$rootDir/build/reports/jacoco/test/")
+        }
+    }
+}
+
+tasks.named("jacocoTestReport") {
+    dependsOn tasks.named("testCodeCoverageReport", JacocoReport)
 }
