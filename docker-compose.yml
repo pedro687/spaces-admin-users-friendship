@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: spaces_admin_users_friendship
+    build: .
+    profiles: ["app"]
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    networks:
+      - spaces_users_admin
+
+networks:
+  spaces_users_admin:
