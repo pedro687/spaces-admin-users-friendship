@@ -42,6 +42,8 @@ dependencies {
     }
     implementation('org.springframework.boot:spring-boot-starter-undertow')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-webmvc-core', version: '1.7.0'
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.7.0'
 
     testImplementation('org.flywaydb:flyway-core')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
@@ -50,7 +52,7 @@ dependencies {
 }
 
 flyway {
-    url = System.getenv('FLYWAY_DB') ?: 'jdbc:mysql://localhost:3306/spaces?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true'
+    url = System.getenv('FLYWAY_DB') ?: 'jdbc:mysql://localhost:3306/spaces_users_admin?useTimezone=true&serverTimezone=UTC&createDatabaseIfNotExist=false&useSSL=false&allowPublicKeyRetrieval=true'
     user = System.getenv('FLYWAY_USER') ?: 'root'
     password = System.getenv('FLYWAY_PASSWORD') ?: 'docker'
 }
