@@ -3,7 +3,6 @@ package com.spaces.user.svc.application.user;
 import com.spaces.user.svc.domain.exception.DomainException;
 import com.spaces.user.svc.domain.users.Gender;
 import com.spaces.user.svc.domain.users.Tellphone;
-import com.spaces.user.svc.domain.validation.handler.Notification;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,9 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.stream.Collectors;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserInteractorTest {
@@ -62,7 +58,6 @@ class UserInteractorTest {
 
     @Test
     void givenAnInvalidUser_whenCallsCreateUser_thenShouldReturnDomainException() {
-        // Given
         UserCreateCommand userCreateCommand = UserCreateCommand.with(
                 null,
                 "12345",

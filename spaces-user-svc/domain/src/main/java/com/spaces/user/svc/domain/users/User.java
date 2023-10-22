@@ -27,6 +27,16 @@ public class User extends AggregateRoot<UserID> {
         this.active = active;
     }
 
+    private User(UserID userID, String username, String email, LocalDate birthdayDate, Gender gender, Tellphone tellphone, boolean active) {
+        super(userID);
+        this.username = username;
+        this.email = email;
+        this.birthdayDate = birthdayDate;
+        this.gender = gender;
+        this.tellphone = tellphone;
+        this.active = active;
+    }
+
     public static User newUser(String username,
                                String password,
                                String email,
@@ -35,6 +45,14 @@ public class User extends AggregateRoot<UserID> {
                                Tellphone tellphone) {
         final var userId = UserID.unique();
         return new User(userId, username, password, email, birthdayDate, gender, tellphone, true);
+    }
+
+    public static User from(UserID userID, String username,
+                            String email,
+                            LocalDate birthdayDate,
+                            Gender gender,
+                            Tellphone tellphone) {
+        return new User(userID, username, email, birthdayDate, gender, tellphone, true);
     }
 
     @Override

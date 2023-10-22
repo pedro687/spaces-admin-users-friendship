@@ -1,6 +1,5 @@
 package com.spaces.user.svc.application.user;
 
-import com.spaces.user.svc.application.UseCase;
 import com.spaces.user.svc.domain.users.User;
 import com.spaces.user.svc.domain.validation.handler.Notification;
 import io.vavr.API;

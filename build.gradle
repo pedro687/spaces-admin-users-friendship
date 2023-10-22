@@ -2,16 +2,11 @@ plugins {
     id 'java'
 }
 
-group = 'com.spaces.admin.users.friendship'
-version = '1.0.0'
+group = 'com.spaces.user.svc'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
 }
 
 

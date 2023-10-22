@@ -24,21 +24,17 @@ public class UserValidator extends Validator {
     @Override
     public void validate() {
 
-        if (predicateUsername.test(this.user.getUsername())) {
-            this.validationHandler().append(new Error("Username is required"));
-        }
+        if (predicateUsername.test(this.user.getUsername())) this.validationHandler().append(new Error("Username is required"));
 
-        if (predicatePassword.test(this.user.getPassword())) {
-            this.validationHandler().append(new Error("Password is required"));
-        }
 
-        if (predicateEmail.test(this.user.getEmail())) {
-            this.validationHandler().append(new Error("Email is required"));
-        }
+        if (predicatePassword.test(this.user.getPassword())) this.validationHandler().append(new Error("Password is required"));
 
-        if (predicateBirthdayDate.test(this.user.getBirthdayDate().toString())) {
-            this.validationHandler().append(new Error("Birthday is required and should be more than 18 years old"));
-        }
+
+        if (predicateEmail.test(this.user.getEmail())) this.validationHandler().append(new Error("Email is required"));
+
+
+        if (predicateBirthdayDate.test(this.user.getBirthdayDate().toString())) this.validationHandler().append(new Error("Birthday is required and should be more than 18 years old"));
+
 
     }
 

@@ -18,6 +18,10 @@ public class Notification implements ValidationHandler {
         return new Notification(new ArrayList<>());
     }
 
+    public static Notification create(final Throwable error) {
+        return (Notification) new Notification(new ArrayList<>()).append(new Error(error.getMessage()));
+    }
+
     @Override
     public ValidationHandler append(Error anError) {
         this.errors.add(anError);
@@ -29,4 +33,6 @@ public class Notification implements ValidationHandler {
     public List<Error> getErrors() {
         return this.errors;
     }
+
+
 }

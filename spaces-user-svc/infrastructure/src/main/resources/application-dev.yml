@@ -1,0 +1,5 @@
+mysql:
+  username: root
+  password: docker
+  schema: spaces_users_admin
+  url: localhost:3306
